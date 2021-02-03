@@ -6,45 +6,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class FormUsuario extends BasePages{
-
     public FormUsuario(WebDriver navegador) {
         super(navegador);
     }
-    WebElement formularioUsuario = navegador.findElement(By.id("authentication"));
-
-    public FormUsuario titleMr() {
-        // Selecionar "Mr."
-        formularioUsuario.findElement(By.id("id_gender1")).click();
-        return this;
-    }
-    public FormUsuario titleMrs() {
-        // Selecionar "Mr."
-        formularioUsuario.findElement(By.id("id_gender2")).click();
-        return this;
-    }
 
     public FormUsuario title(String title) {
-
-        if(title.equalsIgnoreCase("1")) {
-            this.titleMr();
-        } else {
-            this.titleMrs();
-        }
+        navegador.findElement(By.id(title)).click();
         return this;
     }
 
-    public FormUsuario completeName(String firstName, String lastName) {
+    public FormUsuario completeName(String firstname, String lastname) {
 
         // Digitar no campo "First name" e no campo "Last name"
-        formularioUsuario.findElement(By.id("customer_firstname")).sendKeys(firstName);
-        formularioUsuario.findElement(By.id("customer_lastname")).sendKeys(lastName);
+        navegador.findElement(By.id("customer_firstname")).sendKeys(firstname);
+        navegador.findElement(By.id("customer_lastname")).sendKeys(lastname);
 
         return this;
     }
 
     public FormUsuario inserirSenha(String senha) {
         // Digitar no campo "Password"
-        formularioUsuario.findElement(By.id("passwd")).sendKeys(senha);
+        navegador.findElement(By.id("passwd")).sendKeys(senha);
 
         return this;
     }
@@ -85,14 +67,14 @@ public class FormUsuario extends BasePages{
 
     public FormUsuario address(String address) {
         // Digitat no campo "Address"
-        formularioUsuario.findElement(By.id("address1")).sendKeys(address);
+        navegador.findElement(By.id("address1")).sendKeys(address);
 
         return this;
     }
 
     public FormUsuario city(String city) {
         // Digitar no campo "City"
-        formularioUsuario.findElement(By.id("city")).sendKeys(city);
+        navegador.findElement(By.id("city")).sendKeys(city);
 
         return this;
     }
@@ -106,9 +88,9 @@ public class FormUsuario extends BasePages{
         return this;
     }
 
-    public FormUsuario inserirZipCode(String zipCode) {
+    public FormUsuario inserirZipCode(String zipcode) {
         // Digitar no campo "Zip/Postal Code"
-        formularioUsuario.findElement(By.id("postcode")).sendKeys(zipCode);
+        navegador.findElement(By.id("postcode")).sendKeys(zipcode);
 
         return this;
     }
@@ -124,21 +106,21 @@ public class FormUsuario extends BasePages{
 
     public FormUsuario inserirMobile(String mobile) {
         // Digitar no campo "Mobile phone"
-        formularioUsuario.findElement(By.id("phone_mobile")).sendKeys(mobile);
+        navegador.findElement(By.id("phone_mobile")).sendKeys(mobile);
 
         return this;
     }
 
     public FormUsuario inserirAlias(String alias) {
         // Digitar no campo "Assign an address alias for future reference."
-        formularioUsuario.findElement(By.id("alias")).sendKeys(alias);
+        navegador.findElement(By.id("alias")).sendKeys(alias);
 
         return this;
     }
 
     public NavPrincipalPage registrar() {
         // Clicar no botão Register
-        formularioUsuario.findElement(By.id("submitAccount")).click();
+        navegador.findElement(By.id("submitAccount")).click();
 
         return new NavPrincipalPage(navegador);
     }
